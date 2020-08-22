@@ -1,0 +1,20 @@
+server:
+  port: 9003
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9021/eureka/
+
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
+
+zuul:
+  routes:
+    capture:
+      path: /capture/**
+      serviceId: trade-capture
+    query:
+      path: /query/**
+      serviceId: trade-query

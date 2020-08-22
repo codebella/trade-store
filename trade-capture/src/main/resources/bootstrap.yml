@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: trade-capture
+  cloud:
+    config:
+      uri: http://localhost:9088
+  h2:
+    console:
+      enabled: true
+  datasource:
+    url: jdbc:h2:mem:testdb

@@ -20,22 +20,22 @@ public class TradeServiceImpl implements TradeService {
     @Autowired
     private MatureTradeCommand matureCommand;
 
-    public TradeResponse save(TradeRequest tradeRequest) {
-        List<String> errorList = doValidate(tradeRequest);
+    public TradeResponse save(TradeModel tradeModel) {
+        List<String> errorList = doValidate(tradeModel);
         final TradeResponse response;
         if (errorList.isEmpty()) {
-            response = createCommand.execute(tradeRequest);
+            response = createCommand.execute(tradeModel);
         } else {
             response = new TradeResponse(errorList, Status.ValidationError);
         }
         return response;
     }
 
-    public TradeResponse saveOrUpdate(TradeRequest tradeRequest) {
-        List<String> errorList = doValidate(tradeRequest);
+    public TradeResponse saveOrUpdate(TradeModel tradeModel) {
+        List<String> errorList = doValidate(tradeModel);
         final TradeResponse response;
         if (errorList.isEmpty()) {
-            response = updateCommand.execute(tradeRequest);
+            response = updateCommand.execute(tradeModel);
         } else {
             response = new TradeResponse(errorList, Status.ValidationError);
         }
@@ -46,7 +46,7 @@ public class TradeServiceImpl implements TradeService {
         return matureCommand.execute(getDate());
     }
 
-    private List<String> doValidate(TradeRequest request) {
+    private List<String> doValidate(TradeModel request) {
         List<String> errorList = new ArrayList<>();
         Date dateFromInstant = getDate();
         if (request.getMaturityDt().before(dateFromInstant)) {

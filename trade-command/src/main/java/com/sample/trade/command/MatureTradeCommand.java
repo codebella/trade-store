@@ -1,7 +1,6 @@
 package com.sample.trade.command;
 
-import com.sample.trade.PersistenceService;
-import com.sample.trade.TradeResponse;
+import com.sample.services.trade.model.PersistenceService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

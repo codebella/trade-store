@@ -4,9 +4,9 @@ import java.time.Instant;
 import java.util.Date;
 
 public interface TradeService {
-    TradeResponse save(TradeRequest tradeRequest);
+    TradeResponse save(TradeModel tradeModel);
 
-    TradeResponse saveOrUpdate(TradeRequest tradeRequest);
+    TradeResponse saveOrUpdate(TradeModel tradeModel);
 
     Integer mature();
 

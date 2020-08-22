@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: trade-proxy
+  cloud:
+    config:
+      uri: http://localhost:9088
+    loadbalancer:
+      ribbon:
+        enabled: false
