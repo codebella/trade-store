@@ -6,6 +6,7 @@ public enum Status {
     Updated,
     Deleted,
     NotFound,
+    TemporaryFailure,
     AlreadyExists,
     ValidationError
 

@@ -1,10 +1,13 @@
 server:
-  port: 0
+  port: ${PORT:0}
+  context-path: /
 
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:9021/eureka/
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
 
 logging:
   pattern:

@@ -1,10 +1,12 @@
 package com.sample.services.trade.capture.controller;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.sample.trade.TradeModel;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.messaging.Message;
@@ -23,6 +25,7 @@ public class TradeController {
     @ApiResponses(value = {
             @ApiResponse(code = 500, message = "Server error"),
             @ApiResponse(code = 202, message = "Accepted")})
+    @HystrixCommand(fallbackMethod = "defaultRequest")
     public ResponseEntity postTrade(@RequestBody TradeModel view) {
         Message<TradeModel> message = MessageBuilder.withPayload(view).build();
         kafkaTemplate.send(message);
@@ -40,4 +43,10 @@ public class TradeController {
         return response;
     }
 
-}c
+    public ResponseEntity defaultRequest(@RequestBody TradeModel view) {
+        ResponseEntity response = ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).build();
+
+        return response;
+    }
+
+}
