@@ -14,7 +14,6 @@ import org.springframework.kafka.support.serializer.JsonDeserializer;
 import java.util.HashMap;
 import java.util.Map;
 
-@EnableKafka
 @Configuration
 public class TradeConsumerConfig {
     @Value(value = "${kafka.server}")

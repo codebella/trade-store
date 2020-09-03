@@ -1,5 +1,6 @@
-package com.sample.trade;
+package com.sample.services.trade.capture;
 
+import com.sample.trade.TradeModel;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.beans.factory.annotation.Value;

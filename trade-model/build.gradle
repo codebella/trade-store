@@ -1,7 +1,7 @@
 
 dependencies {
-    implementation project(':trade-api')
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    api project(':trade-api')
+    api 'org.springframework.boot:spring-boot-starter-data-jpa'
     runtimeOnly 'com.h2database:h2'
 }
 
@@ -9,6 +9,3 @@ bootJar {
     enabled = false
 }
 
-jar {
-    enabled = true
-}

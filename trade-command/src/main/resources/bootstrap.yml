@@ -1,0 +1,4 @@
+kafka:
+  port: 9099
+  server: 'localhost:${kafka.port}'
+  topic: trade

@@ -4,6 +4,7 @@ import com.sample.trade.command.CreateTradeCommand;
 import com.sample.trade.command.MatureTradeCommand;
 import com.sample.trade.command.UpdateTradeCommand;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -13,6 +14,8 @@ import java.util.List;
 @Component
 public class TradeServiceImpl implements TradeService {
 
+    @Autowired
+    private ConsumerFactory consumerFactory;
     @Autowired
     private CreateTradeCommand createCommand;
     @Autowired

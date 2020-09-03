@@ -2,6 +2,8 @@ dependencies {
     implementation project(':trade-api')
     implementation project(':trade-command')
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.kafka:spring-kafka:2.5.5.RELEASE'
+    implementation 'org.springframework.kafka:spring-kafka-test:2.5.5.RELEASE'
     implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
     implementation 'org.springframework.cloud:spring-cloud-starter-config'
     implementation 'org.springframework.cloud:spring-cloud-starter-netflix-hystrix'
@@ -10,10 +12,9 @@ dependencies {
     implementation 'io.springfox:springfox-swagger-ui:2.8.0'
     implementation 'org.springframework.kafka:spring-kafka:2.5.5.RELEASE'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation 'junit:junit:4.12'
 }
 
 springBoot {
-    mainClassName = 'com.sample.services.trade.capture.WebApplication'
+    mainClassName = 'com.sample.services.trade.capture.TradeCaptureApplication'
 }
 

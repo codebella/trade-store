@@ -1,18 +1,7 @@
 dependencies {
-    implementation project(':trade-api')
-    implementation project(':trade-model')
+    api project(':trade-model')
     implementation 'org.springframework.kafka:spring-kafka:2.5.5.RELEASE'
     implementation 'org.springframework.kafka:spring-kafka-test:2.5.5.RELEASE'
-    implementation 'org.slf4j:slf4j-api:1.7.30'
-    compile 'com.fasterxml.jackson.core:jackson-core:2.4.1'
-    compile 'com.fasterxml.jackson.core:jackson-annotations:2.4.1'
-    compile 'com.fasterxml.jackson.core:jackson-databind:2.4.1'
 }
 
-bootJar {
-    enabled = false
-}
 
-jar {
-    enabled = true
-}

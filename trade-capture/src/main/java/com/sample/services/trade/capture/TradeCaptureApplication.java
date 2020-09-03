@@ -7,6 +7,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.kafka.annotation.EnableKafka;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -25,6 +26,7 @@ import java.util.Collections;
 @EnableCircuitBreaker
 @EnableHystrixDashboard
 @EnableSwagger2
+@EnableKafka
 public class TradeCaptureApplication {
     public static void main(String[] args) throws UnknownHostException {
         ConfigurableApplicationContext context = SpringApplication.run(TradeCaptureApplication.class, args);
@@ -49,4 +51,5 @@ public class TradeCaptureApplication {
 
         return "http://" + ip + ":" + port + "/swagger-ui.html";
     }
+
 }

@@ -1,12 +1,10 @@
-package com.sample.trade;
+package com.sample.services.trade.capture;
 
 import org.apache.kafka.clients.admin.AdminClientConfig;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.kafka.core.KafkaAdmin;
 import org.springframework.kafka.test.EmbeddedKafkaBroker;
 
@@ -14,7 +12,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
-@PropertySource("classpath:trade-command-application.properties")
 public class KafkaConfig {
 
     @Value(value = "${kafka.server}")
@@ -26,7 +23,7 @@ public class KafkaConfig {
 
     @Bean
     public EmbeddedKafkaBroker kafkaBroker() {
-        EmbeddedKafkaBroker embeddedKafka = new EmbeddedKafkaBroker(1, true, 2, topic);
+        EmbeddedKafkaBroker embeddedKafka = new EmbeddedKafkaBroker(1, true, 4, topic);
         embeddedKafka.kafkaPorts(port);
         Map<String, String> properties = new HashMap<>();
         properties.put("log.dirs", "kafka-log");
